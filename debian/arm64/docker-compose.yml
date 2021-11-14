@@ -1,0 +1,18 @@
+version: "3.8"
+services:
+  tex-debian:
+    image: ktsuda/tex-debian-arm64:latest
+    build:
+      context: .
+      dockerfile: Dockerfile
+    platform: linux/arm64/v8
+    container_name: tex-debian
+    volumes:
+      - type: bind
+        source: ./
+        target: /prj
+    stdin_open: true
+    tty: true
+    working_dir: /prj
+
+
